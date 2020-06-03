@@ -20,10 +20,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build the docker-compose stack
+      run: |
+        docker-compose up -d
+    - name: Docker log
+      run: docker-compose logs
     - name: Execute cypress
       uses: cypress-io/github-action@v1
       with:
         record: true
       env:
         CYPRESS_RECORD_KEY: f299a2e0-c1d3-4b71-bd3c-86eafa3ae3b1
+    - name: Docker log
+        run: docker-compose logs
