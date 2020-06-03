@@ -29,10 +29,10 @@ jobs:
       run: docker-compose logs
     - name: Execute cypress
       uses: cypress-io/github-action@v1
-      with:
-        record: true
-      env:
-        CYPRESS_RECORD_KEY: f299a2e0-c1d3-4b71-bd3c-86eafa3ae3b1
+#       with:
+#         record: true
+#       env:
+#         CYPRESS_RECORD_KEY: f299a2e0-c1d3-4b71-bd3c-86eafa3ae3b1
     - name: Echo 
       run: echo "hello! shohu"
     - name: Docker log
